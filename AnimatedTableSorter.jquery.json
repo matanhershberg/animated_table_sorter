@@ -1,0 +1,28 @@
+{
+	"name": "AnimatedTableSorter",
+	"title": "Animated Table Sorter",
+	"description": "Animated Table Sorter is a simple html table sorter, with the added benefit of animating the sorting operation.",
+	"keywords": [
+		"table",
+		"animation",
+		"sort"
+	],
+	"version": "0.2.1",
+	"author": {
+		"name": "Matan Hershberg",
+		"url": "http://www.matanhershberg.com/plugins/jquery-animated-table-sorter/"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://en.wikipedia.org/wiki/MIT_License#License_terms"
+		}
+	],
+	"bugs": "https://github.com/matanhershberg/animated_table_sorter/issues",
+	"homepage": "http://www.matanhershberg.com/plugins/jquery-animated-table-sorter/",
+	"docs": "http://www.matanhershberg.com/plugins/jquery-animated-table-sorter/getting-started/",
+	"download": "http://www.matanhershberg.com/plugins/jquery-animated-table-sorter/",
+	"dependencies": {
+		"jquery": ">=1.5"
+	}
+}
