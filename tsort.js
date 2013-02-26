@@ -1,5 +1,5 @@
 /*
- * jQuery Animated Table Sorter 0.2.1 (01/30/2013)
+ * jQuery Animated Table Sorter 0.2.2 (02/25/2013)
  *
  * http://www.matanhershberg.com/plugins/jquery-animated-table-sorter/
  *
@@ -267,24 +267,27 @@ Array - Specifc table
 				
 				if ( settings['animation'] == 'none') {
 				
-					data.forEach(function(el, index) {
+					for ( index = 0; index < data.length; index++ ) {
+						var el = data[index];
 						$(table).find('tr.tsort_id-' + el.id).css({ top: vertical_offset }).appendTo(table);
 						vertical_offset += el.height;
-					});
+					}
 					
 				} else if ( settings['animation'] == 'slide') {
 				
-					data.forEach(function(el, index) {
+					for ( index = 0; index < data.length; index++) {
+						var el = data[index];
 						$(table).find('tr.tsort_id-' + el.id).stop().delay(settings['delay'] * index).animate({ top: vertical_offset}, settings['speed'], 'swing').appendTo(table);
 						vertical_offset += el.height;
-					});
+					}
 				
 				} else if ( settings['animation'] == 'fadeAll') {
 				
 					animating = true;
 					
 					$(table).find('tr:gt(0)').fadeOut(settings['speed']).promise().done(function() {
-						data.forEach(function(el, index) {
+						for ( index = 0; index < data.length; index++) {
+							var el = data[index];
 							$(table).find('tr.tsort_id-' + el.id).css({ top: vertical_offset }).appendTo(table);
 							vertical_offset += el.height;
 							if (index == table_data.length - 1 ) {
@@ -294,7 +297,7 @@ Array - Specifc table
 
 								});
 							}
-						});						
+						};
 					});
 					
 				} else if ( settings['animation'] == 'fade') {
@@ -302,9 +305,10 @@ Array - Specifc table
 					animating = true;
 					
 					if ( copied_tr.length == 0 ) {
-						data.forEach(function(el, index) {
+						for ( index = 0; index < data.length; index++ ) {
+							var el = data[index];
 							copied_tr[el.id] = $(table).find('tr.tsort_id-' + el.id).clone();
-						});
+						}
 					}
 					
 					$(table).find('tr:gt(0)').each(function(index, el) {
@@ -329,19 +333,20 @@ Array - Specifc table
 						$(this).delay(index * settings['delay']).animate( { left: "-" + settings['distance'], opacity: 0} , settings['speed'], 'swing');
 						if ( index == table_data.length - 1 ) {
 							$(this).promise().done(function() {
-								data.forEach(function(el, index) {
+								for ( index = 0; index < data.length; index++ ) {
+									var el = data[index];
 									$(table).find('tr.tsort_id-' + el.id).css({ top: vertical_offset, left: '', right: "-" + settings['distance'] }).appendTo(table).delay(index * settings['delay']).animate({ right: "0px", opacity: 1 }, settings['speed'], 'swing', function() {
 										
 										$(this).css('right','auto')
 										
-										if (index == table_data.length - 1) {
+										if ($(this).is('tr:last-child')) {
 											animating = false;
 										}
 									});
 									
 									vertical_offset += el.height;
 									
-								});
+								}
 							});
 						}
 					});
@@ -351,9 +356,10 @@ Array - Specifc table
 					animating = true;
 					
 					if ( copied_tr.length == 0 ) {
-						data.forEach(function(el, index) {
+						for ( index = 0; index < data.length; index++ ) {
+							var el = data[index];
 							copied_tr[el.id] = $(table).find('tr.tsort_id-' + el.id).clone();
-						});
+						};
 					}
 					
 					$(table).find('tr:gt(0)').each(function(index, el) {

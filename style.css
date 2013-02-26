@@ -16,7 +16,7 @@ table.tableSorter th div.sortArrow div.sortArrowDescending {
 }
 
 table.tableSorter th div.sortArrow div.sortArrowAscending {
-	background: url('arrow_asc.png') no-repeat;
+	background: url('arrow_asc.png');
 }
 
 table.tableSorter th div.sortArrow div.sortArrowDescending {
